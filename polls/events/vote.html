@@ -9,19 +9,22 @@
 </head>
 <body>
    <div class="container">
+    <div class="col-md-6 offset-md-3">
+    <br>
 
-    <form method="post">
+    <form method="post"  id="frm">
         {% csrf_token %}
-        <select name="vote" id="vote">
+        <select class="form-select" aria-label="Vote" name="vote" id="vote" width="6cm">
             {% for choice in choices %}
                 <option value="{{ choice }}">{{ choice }}</option>
             {% endfor %}
         </select>
-        <input type="submit">
-    </form>
-    <br>
-    {{ ccc }}
-   </div>
-    
+        <br>
+        <button type="submit" id="sbmt" class="btn btn-primary">Vote</button>
+   </form>
+   
+
+</div>
+</div>
 </body>
 </html>
