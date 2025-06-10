@@ -18,23 +18,7 @@ def index(request):
     return render(request, "index.html", {'questions': latest_question_list, 'votes':d, 'percentages':pl})
     
     
-"""def detail(request, question_id):
-    
-    instance = Question.objects.get(id=question_id).choice_set.values_list("id", "choice_text")
-    
-    if request.method == 'POST':
-        form = choices(request.POST or None, initial={'result': instance})
-        if form.is_valid():
-            vote = form.cleaned_data.get('choice')
-            c = Choice.objects.get(choice_text=vote)
-            c.votes = c.votes+1
-            messages.success(request, "You have Voted!")
-            #redirect('index')
-            
-    else:
-        form= choices()
-    #return render(request, "question.html", {'form': form})
-"""
+
 def vote(request, question_id):
     total = 100
     c = Question.objects.get(pk=question_id).choice_set.all()
